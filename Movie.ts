@@ -1,32 +1,38 @@
 import { Persona } from "./persona";
 
+
+
 export class Movie {
     public title: string;
     public releaseYear: number;
-    public actors: Persona;
+    public actors: string;
     public nacionality: string;
-    public director: Persona;
-    public writer: Persona;
-    public language: string;
-    public platform: string;
-    public isMCU: boolean;
+    public director: string;
+    public writer: string;
+    public language:string;
+    public platform:string;
+    public isMCU:string;
     public mainCharacterName: string;
-    public producer: Persona;
+    public producer: string;
     public genre: string;
+    public disp:boolean;
 
     constructor(title: string, releaseYear: number, nacionality: string, genre: string) {
         this.title = title;
         this.releaseYear = releaseYear;
         this.nacionality = nacionality;
         this.genre = genre;
+        this.disp=true;
 
+    
     }
-    toText() {
+    public toTextVideo():string {
         let res: string = ""
         for (let atribute in this) {
             if (typeof this[atribute] == "string" || typeof this[atribute] == "number" || typeof this[atribute] == "boolean") {
                 res = res + atribute + ":  " + this[atribute] + "\n";
             }
-        } console.log(res)
+        }
+        return res;
     }
 }
