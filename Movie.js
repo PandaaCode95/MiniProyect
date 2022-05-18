@@ -7,15 +7,16 @@ var Movie = /** @class */ (function () {
         this.releaseYear = releaseYear;
         this.nacionality = nacionality;
         this.genre = genre;
+        this.disp = true;
     }
-    Movie.prototype.toText = function () {
+    Movie.prototype.toTextVideo = function () {
         var res = "";
         for (var atribute in this) {
             if (typeof this[atribute] == "string" || typeof this[atribute] == "number" || typeof this[atribute] == "boolean") {
                 res = res + atribute + ":  " + this[atribute] + "\n";
             }
         }
-        console.log(res);
+        return res;
     };
     return Movie;
 }());
