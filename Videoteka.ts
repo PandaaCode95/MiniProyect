@@ -1,4 +1,5 @@
 import { Movie } from "./Movie"
+const fs = require('fs')
 export class Videoteca{
     
     public name:string
@@ -60,5 +61,22 @@ tofilterNoDisp():Movie[]{
     return filt;
   }
 
+//IMBD
+writeJSON(name:string):JSON{
 
+    let videotk = JSON.stringify(this)
+    return fs.writeFileSync(name, videotk)
+
+  }
+
+instanciaImbd(name:string):Videoteca{
+
+    fs.readFileSync(name);
+    for(let value in (JSON.parse(fs.readFileSync(name)))){
+    return (JSON.parse(fs.readFileSync(name)))[value]
+    }
+  }
+  
 }
+
+
